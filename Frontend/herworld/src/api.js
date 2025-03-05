@@ -1,5 +1,4 @@
 const API_URL = "http://localhost:5001/api"; // Ensure the port matches your backend
-
 export const registerUser = async (userData) => {
   try {
     const response = await fetch(`${API_URL}/users/register`, {
