@@ -5,6 +5,7 @@ import Forum from './pages/Forum';
 import Navbar from './Components/Navbar';
 import Signup from './pages/Signup';
 import Login from './pages/Login'; // Ensure Login component is imported
+import BeyondBoundaries from './pages/BeyondBoundaries';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/forum" element={<Forum />} />
         <Route path="/login" element={<Login />} /> {/* Ensure Login route is correct */}
         <Route path="/signup" element={<Signup />} />
+        <Route path="/news" element={<BeyondBoundaries />} />
       </Routes>
     </Router>
   );

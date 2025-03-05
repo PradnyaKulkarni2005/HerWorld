@@ -27,3 +27,18 @@ export const loginUser = async (userData) => {
     return { error: "Failed to login user" };
   }
 };
+
+import axios from 'axios';
+
+  // Backend URL
+
+export const fetchNews = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/news`);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching news:", error);
+        return [];
+    }
+};
+
