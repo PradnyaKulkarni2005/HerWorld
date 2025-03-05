@@ -10,12 +10,18 @@ const Signup = () => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    const data = await registerUser({ name, email, password });
-    if (data.message) {
-      alert("Signup successful! Please log in.");
-      navigate("/login");
-    } else {
-      alert(data.error);
+    console.log("Signup button clicked");
+    try {
+      const data = await registerUser({ name, email, password });
+      console.log("Response from server:", data);
+      if (data.message) {
+        alert("Signup successful! Please log in.");
+        navigate("/login");
+      } else {
+        alert(data.error);
+      }
+    } catch (error) {
+      console.error("Error during signup:", error);
     }
   };
 

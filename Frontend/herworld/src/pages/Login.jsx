@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { loginUser } from "../api";
 import { useNavigate } from "react-router-dom";
 
@@ -9,19 +9,25 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const data = await loginUser({ email, password });
-    if (data.token) {
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
-      navigate("/forum");
-    } else {
-      alert(data.error);
+    console.log("Login button clicked");
+    try {
+      const data = await loginUser({ email, password });
+      console.log("Response from server:", data);
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+        navigate("/forum");
+      } else {
+        alert(data.error);
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
     }
   };
 
   return (
     <div>
-      <h2>Login</h2>
+      <h1>Login Page</h1>
       <form onSubmit={handleLogin}>
         <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
         <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />

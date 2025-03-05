@@ -5,8 +5,6 @@ const cors = require('cors');
 
 const app = express();
 
-
-
 // Middleware
 app.use(express.json()); // Parse JSON data
 app.use(cors()); // Allow frontend to communicate with backend
@@ -25,5 +23,8 @@ app.use('/api/users', userRoutes);
 app.use('/api/forum', forumRoutes);
 
 // Port Configuration
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+  .on('error', (err) => {
+    console.error(`Server error: ${err.message}`);
+  });
