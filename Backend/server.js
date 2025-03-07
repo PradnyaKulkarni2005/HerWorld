@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 app.use(cors(
   {
-    origin:[""],
+    origin:["https://her-world-women.vercel.app/"],
     methods:["POST","GET"],
     credentials:true
   }
