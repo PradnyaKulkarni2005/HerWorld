@@ -4,7 +4,13 @@ const connectDB = require('./config/db');
 const cors = require('cors');
 
 const app = express();
-
+app.use(cors(
+  {
+    origin:[""],
+    methods:["POST","GET"],
+    credentials:true
+  }
+));
 // Middleware
 app.use(express.json()); // Parse JSON data
 app.use(cors()); // Allow frontend to communicate with backend
